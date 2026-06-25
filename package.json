@@ -6,8 +6,8 @@
     "dev": "next dev",
     "build": "next build",
     "postbuild": "node scripts/copy-standalone.mjs",
-    "start": "next start",
-    "start:standalone": "node .next/standalone/server.js",
+    "start": "node .next/standalone/server.js",
+    "start:next": "next start",
     "lint": "next lint"
   },
   "dependencies": {
