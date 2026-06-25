@@ -10,6 +10,7 @@ import {
   Settings,
   LogOut,
   Plus,
+  Shield,
 } from 'lucide-react'
 import { createClient } from '@/lib/supabase/client'
 import { cn } from '@/lib/utils'
@@ -23,9 +24,21 @@ const NAV = [
   { href: '/configuracion', label: 'Configuración', icon: Settings, exact: false },
 ]
 
-export function Sidebar({ empresaNombre }: { empresaNombre?: string }) {
+export function Sidebar({
+  empresaNombre,
+  esAdmin = false,
+}: {
+  empresaNombre?: string
+  esAdmin?: boolean
+}) {
   const pathname = usePathname()
   const router = useRouter()
+  const nav = esAdmin
+    ? [
+        ...NAV,
+        { href: '/admin', label: 'Admin', icon: Shield, exact: false },
+      ]
+    : NAV
 
   async function handleSignOut() {
     const supabase = createClient()
@@ -50,7 +63,7 @@ export function Sidebar({ empresaNombre }: { empresaNombre?: string }) {
       </div>
 
       <nav className="flex-1 space-y-1 px-3">
-        {NAV.map((item) => {
+        {nav.map((item) => {
           const active = item.exact
             ? pathname === item.href
             : pathname.startsWith(item.href)

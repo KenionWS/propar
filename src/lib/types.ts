@@ -16,6 +16,7 @@ export interface Profile {
   empresa_telefono: string | null
   empresa_email: string | null
   empresa_direccion: string | null
+  es_admin: boolean
   color_primario: string
   color_acento: string
   fuente: string
@@ -82,6 +83,23 @@ export interface PropuestaConVisitas extends Propuesta {
 }
 
 export type FacturaEstado = 'pendiente' | 'facturada' | 'enviada' | 'error'
+
+export interface Rubro {
+  id: string
+  nombre: string
+  slug: string
+  orden: number
+  created_at: string
+}
+
+export interface Servicio {
+  id: string
+  rubro_id: string
+  nombre: string
+  slug: string
+  orden: number
+  created_at: string
+}
 
 export interface Pago {
   id: string
