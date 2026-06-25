@@ -38,7 +38,7 @@ export function ItemRow({
   onChange: (patch: Partial<LocalItem>) => void
   onRemove: () => void
   onMove: (dir: -1 | 1) => void
-  onSaveToLibrary: () => void
+  onSaveToLibrary?: () => void
 }) {
   return (
     <div className="flex gap-3 rounded-lg border bg-card p-3">
@@ -112,16 +112,18 @@ export function ItemRow({
       </div>
 
       <div className="flex flex-col items-start gap-1">
-        <Button
-          type="button"
-          variant="ghost"
-          size="icon"
-          onClick={onSaveToLibrary}
-          title="Guardar en biblioteca"
-          className="text-muted-foreground hover:text-primary"
-        >
-          <BookmarkPlus className="h-4 w-4" />
-        </Button>
+        {onSaveToLibrary ? (
+          <Button
+            type="button"
+            variant="ghost"
+            size="icon"
+            onClick={onSaveToLibrary}
+            title="Guardar en biblioteca"
+            className="text-muted-foreground hover:text-primary"
+          >
+            <BookmarkPlus className="h-4 w-4" />
+          </Button>
+        ) : null}
         <Button
           type="button"
           variant="ghost"

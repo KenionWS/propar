@@ -2,7 +2,7 @@ import Link from 'next/link'
 import { createClient } from '@/lib/supabase/server'
 import { ProposalList } from '@/components/dashboard/ProposalList'
 import { Button } from '@/components/ui/button'
-import { Plus } from 'lucide-react'
+import { Plus, LayoutTemplate } from 'lucide-react'
 import type { Propuesta, Item } from '@/lib/types'
 
 export const dynamic = 'force-dynamic'
@@ -31,12 +31,20 @@ export default async function PropuestasPage() {
             total.
           </p>
         </div>
-        <Button asChild className="gap-2">
-          <Link href="/propuestas/nueva">
-            <Plus className="h-4 w-4" />
-            Nueva propuesta
-          </Link>
-        </Button>
+        <div className="flex items-center gap-2">
+          <Button asChild variant="outline" className="gap-2">
+            <Link href="/propuestas/plantillas">
+              <LayoutTemplate className="h-4 w-4" />
+              Desde plantilla
+            </Link>
+          </Button>
+          <Button asChild className="gap-2">
+            <Link href="/propuestas/nueva">
+              <Plus className="h-4 w-4" />
+              Nueva propuesta
+            </Link>
+          </Button>
+        </div>
       </div>
 
       <ProposalList propuestas={propuestas} />

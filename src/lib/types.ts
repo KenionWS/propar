@@ -115,6 +115,29 @@ export type BloqueInsertable = Pick<
   'nombre' | 'descripcion' | 'precio' | 'moneda' | 'caracteristicas'
 >
 
+export interface PlantillaItem {
+  nombre: string
+  descripcion: string | null
+  precio: number
+  moneda: Moneda
+  caracteristicas: Caracteristica[]
+}
+
+export interface Plantilla {
+  id: string
+  rubro_id: string
+  nombre: string
+  descripcion: string | null
+  introduccion: string | null
+  terminos: string | null
+  moneda: Moneda
+  vigencia_dias: number
+  modo_aceptacion: ModoAceptacion
+  items: PlantillaItem[]
+  orden: number
+  created_at: string
+}
+
 export interface BloqueEjemplo {
   id: string
   servicio_id: string
