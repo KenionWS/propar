@@ -5,7 +5,7 @@ import { Plus } from 'lucide-react'
 import { ItemRow, type LocalItem } from './ItemRow'
 import { BibliotecaPicker } from './BibliotecaPicker'
 import { formatTotales } from '@/lib/formatters'
-import type { Item, Bloque } from '@/lib/types'
+import type { Item, BloqueInsertable } from '@/lib/types'
 
 export function ItemsSection({
   items,
@@ -21,7 +21,7 @@ export function ItemsSection({
   onChange: (id: string, patch: Partial<LocalItem>) => void
   onRemove: (id: string) => void
   onMove: (id: string, dir: -1 | 1) => void
-  onInsertBloques: (bloques: Bloque[]) => void
+  onInsertBloques: (bloques: BloqueInsertable[]) => void
   onSaveToLibrary: (item: LocalItem) => void
 }) {
   const itemsParaTotal: Item[] = items.map((i) => ({

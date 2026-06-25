@@ -45,7 +45,7 @@ import type {
   Item,
   Moneda,
   Estado,
-  Bloque,
+  BloqueInsertable,
   ModoAceptacion,
 } from '@/lib/types'
 
@@ -159,7 +159,7 @@ export function ProposalEditor({
     })
     markDirty()
   }
-  const insertBloques = (bloques: Bloque[]) => {
+  const insertBloques = (bloques: BloqueInsertable[]) => {
     setItems((prev) => [
       ...prev,
       ...bloques.map((b) => ({

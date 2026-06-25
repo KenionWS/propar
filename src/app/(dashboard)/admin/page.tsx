@@ -1,7 +1,7 @@
 import { redirect } from 'next/navigation'
 import { createClient } from '@/lib/supabase/server'
-import { RubrosManager } from '@/components/admin/RubrosManager'
-import type { Rubro, Servicio } from '@/lib/types'
+import { AdminPanel } from '@/components/admin/AdminPanel'
+import type { Rubro, Servicio, BloqueEjemplo } from '@/lib/types'
 
 export const dynamic = 'force-dynamic'
 
@@ -20,23 +20,29 @@ export default async function AdminPage() {
 
   if (!profile?.es_admin) redirect('/')
 
-  const [{ data: rubros }, { data: servicios }] = await Promise.all([
-    supabase.from('rubros').select('*').order('orden', { ascending: true }),
-    supabase.from('servicios').select('*').order('orden', { ascending: true }),
-  ])
+  const [{ data: rubros }, { data: servicios }, { data: ejemplos }] =
+    await Promise.all([
+      supabase.from('rubros').select('*').order('orden', { ascending: true }),
+      supabase.from('servicios').select('*').order('orden', { ascending: true }),
+      supabase
+        .from('bloques_ejemplo')
+        .select('*')
+        .order('orden', { ascending: true }),
+    ])
 
   return (
     <div className="space-y-6">
       <div>
         <h1 className="text-2xl font-bold tracking-tight">Administración</h1>
         <p className="text-sm text-muted-foreground">
-          Catálogo de la plataforma: rubros y servicios.
+          Catálogo de la plataforma: rubros, servicios y bloques de ejemplo.
         </p>
       </div>
 
-      <RubrosManager
+      <AdminPanel
         rubros={(rubros ?? []) as Rubro[]}
         servicios={(servicios ?? []) as Servicio[]}
+        ejemplos={(ejemplos ?? []) as BloqueEjemplo[]}
       />
     </div>
   )

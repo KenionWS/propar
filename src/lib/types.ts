@@ -109,6 +109,24 @@ export interface Servicio {
   created_at: string
 }
 
+/** Forma mínima para insertar un bloque (de biblioteca o de ejemplo). */
+export type BloqueInsertable = Pick<
+  Bloque,
+  'nombre' | 'descripcion' | 'precio' | 'moneda' | 'caracteristicas'
+>
+
+export interface BloqueEjemplo {
+  id: string
+  servicio_id: string
+  nombre: string
+  descripcion: string | null
+  precio: number
+  moneda: Moneda
+  caracteristicas: Caracteristica[]
+  orden: number
+  created_at: string
+}
+
 export interface Pago {
   id: string
   propuesta_id: string
