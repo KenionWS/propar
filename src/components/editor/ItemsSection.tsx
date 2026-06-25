@@ -33,6 +33,7 @@ export function ItemsSection({
     moneda: i.moneda,
     orden: 0,
     aceptado: true,
+    caracteristicas: i.caracteristicas,
   }))
 
   return (

@@ -108,6 +108,7 @@ export function ProposalEditor({
         descripcion: i.descripcion ?? '',
         precio: Number(i.precio),
         moneda: i.moneda,
+        caracteristicas: i.caracteristicas ?? [],
       }))
   )
 
@@ -126,7 +127,14 @@ export function ProposalEditor({
   const addItem = () => {
     setItems((prev) => [
       ...prev,
-      { id: uuidv4(), nombre: '', descripcion: '', precio: 0, moneda: form.moneda },
+      {
+        id: uuidv4(),
+        nombre: '',
+        descripcion: '',
+        precio: 0,
+        moneda: form.moneda,
+        caracteristicas: [],
+      },
     ])
     markDirty()
   }
@@ -160,6 +168,7 @@ export function ProposalEditor({
         descripcion: b.descripcion ?? '',
         precio: Number(b.precio),
         moneda: b.moneda,
+        caracteristicas: b.caracteristicas ?? [],
       })),
     ])
     markDirty()
@@ -180,6 +189,7 @@ export function ProposalEditor({
       descripcion: item.descripcion || null,
       precio: item.precio,
       moneda: item.moneda,
+      caracteristicas: item.caracteristicas,
     })
     if (error) {
       toast.error('Error al guardar en biblioteca: ' + error.message)
@@ -258,6 +268,7 @@ export function ProposalEditor({
           moneda: it.moneda,
           orden: idx,
           aceptado: true,
+          caracteristicas: it.caracteristicas,
         }))
       )
       if (iErr) {

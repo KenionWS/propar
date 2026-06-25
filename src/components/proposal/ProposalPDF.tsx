@@ -72,16 +72,30 @@ export function ProposalPDF({
       marginBottom: 10,
     },
     item: {
-      flexDirection: 'row',
-      justifyContent: 'space-between',
       marginBottom: esp.itemGap,
       borderBottomWidth: 1,
       borderBottomColor: '#f3f4f6',
       paddingBottom: esp.itemGap,
     },
+    itemHead: {
+      flexDirection: 'row',
+      justifyContent: 'space-between',
+    },
     itemNombre: { fontFamily: pdfFont.bold },
     itemDesc: { fontSize: 9, color: '#6b7280', marginTop: 2 },
-    itemPrecio: { fontFamily: pdfFont.bold },
+    itemPrecio: { fontFamily: pdfFont.bold, color: acento },
+    caracs: { marginTop: 6, paddingLeft: 8 },
+    carac: { flexDirection: 'row', marginTop: 3, alignItems: 'flex-start' },
+    caracBullet: {
+      width: 4,
+      height: 4,
+      borderRadius: 2,
+      backgroundColor: acento,
+      marginTop: 4,
+      marginRight: 6,
+    },
+    caracTitulo: { fontSize: 9 },
+    caracDesc: { fontSize: 8, color: '#6b7280' },
     totalRow: {
       flexDirection: 'row',
       justifyContent: 'flex-end',
@@ -165,15 +179,32 @@ export function ProposalPDF({
         <Text style={styles.sectionLabel}>Servicios</Text>
         {incluidos.map((item) => (
           <View key={item.id} style={styles.item}>
-            <View style={{ flex: 1, paddingRight: 12 }}>
-              <Text style={styles.itemNombre}>{item.nombre}</Text>
-              {item.descripcion ? (
-                <Text style={styles.itemDesc}>{item.descripcion}</Text>
-              ) : null}
+            <View style={styles.itemHead}>
+              <View style={{ flex: 1, paddingRight: 12 }}>
+                <Text style={styles.itemNombre}>{item.nombre}</Text>
+                {item.descripcion ? (
+                  <Text style={styles.itemDesc}>{item.descripcion}</Text>
+                ) : null}
+              </View>
+              <Text style={styles.itemPrecio}>
+                {formatMoney(Number(item.precio), item.moneda)}
+              </Text>
             </View>
-            <Text style={styles.itemPrecio}>
-              {formatMoney(Number(item.precio), item.moneda)}
-            </Text>
+            {(item.caracteristicas ?? []).length > 0 ? (
+              <View style={styles.caracs}>
+                {(item.caracteristicas ?? []).map((c, ci) => (
+                  <View key={ci} style={styles.carac}>
+                    <View style={styles.caracBullet} />
+                    <View style={{ flex: 1 }}>
+                      <Text style={styles.caracTitulo}>{c.titulo}</Text>
+                      {c.descripcion ? (
+                        <Text style={styles.caracDesc}>{c.descripcion}</Text>
+                      ) : null}
+                    </View>
+                  </View>
+                ))}
+              </View>
+            ) : null}
           </View>
         ))}
 

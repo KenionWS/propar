@@ -11,7 +11,8 @@ import {
   GripVertical,
   BookmarkPlus,
 } from 'lucide-react'
-import type { Moneda } from '@/lib/types'
+import type { Moneda, Caracteristica } from '@/lib/types'
+import { CaracteristicasEditor } from './CaracteristicasEditor'
 
 export interface LocalItem {
   id: string
@@ -19,6 +20,7 @@ export interface LocalItem {
   descripcion: string
   precio: number
   moneda: Moneda
+  caracteristicas: Caracteristica[]
 }
 
 export function ItemRow({
@@ -98,6 +100,13 @@ export function ItemRow({
             size="sm"
             value={item.moneda}
             onChange={(m) => onChange({ moneda: m })}
+          />
+        </div>
+
+        <div className="border-t pt-2">
+          <CaracteristicasEditor
+            value={item.caracteristicas}
+            onChange={(caracteristicas) => onChange({ caracteristicas })}
           />
         </div>
       </div>

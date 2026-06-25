@@ -28,6 +28,12 @@ export interface Profile {
   updated_at: string
 }
 
+export interface Caracteristica {
+  icono: string
+  titulo: string
+  descripcion: string
+}
+
 export interface Item {
   id: string
   propuesta_id: string
@@ -37,6 +43,7 @@ export interface Item {
   moneda: Moneda
   orden: number
   aceptado: boolean
+  caracteristicas: Caracteristica[]
 }
 
 export interface Bloque {
@@ -47,6 +54,7 @@ export interface Bloque {
   precio: number
   moneda: Moneda
   veces_usado: number
+  caracteristicas: Caracteristica[]
   created_at: string
   updated_at: string
 }

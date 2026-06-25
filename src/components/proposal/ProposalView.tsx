@@ -13,6 +13,7 @@ import {
   logoPx,
   densidadEspaciado,
 } from '@/lib/branding'
+import { getIcono } from '@/lib/iconos'
 import { AtSign, Link2, Globe, Mail, Phone } from 'lucide-react'
 
 export function ProposalView({
@@ -137,43 +138,99 @@ export function ProposalView({
             Servicios
           </h2>
           <div className="flex flex-col" style={{ gap: esp.itemGap }}>
-            {itemsVisibles.map((item) => {
+            {itemsVisibles.map((item, idx) => {
               const excluido = item.aceptado === false
+              const caracs = item.caracteristicas ?? []
               return (
                 <div
                   key={item.id}
-                  className="flex items-start justify-between gap-4 border-b border-dashed pb-4 last:border-0"
+                  className={
+                    excluido
+                      ? 'rounded-xl border border-dashed p-4 opacity-60'
+                      : 'rounded-xl border p-4'
+                  }
                 >
-                  <div className="min-w-0">
+                  {/* Encabezado de la sección */}
+                  <div className="flex items-start justify-between gap-4">
+                    <div className="flex min-w-0 items-start gap-3">
+                      <span
+                        className="mt-0.5 text-xs font-bold tabular-nums"
+                        style={{ color: acento }}
+                      >
+                        {String(idx + 1).padStart(2, '0')}
+                      </span>
+                      <div className="min-w-0">
+                        <p
+                          className={
+                            excluido
+                              ? 'font-semibold line-through'
+                              : 'font-semibold'
+                          }
+                        >
+                          {item.nombre}
+                        </p>
+                        {item.descripcion ? (
+                          <p className="mt-0.5 text-sm text-muted-foreground">
+                            {item.descripcion}
+                          </p>
+                        ) : null}
+                      </div>
+                    </div>
                     <p
                       className={
                         excluido
-                          ? 'font-medium text-muted-foreground line-through'
-                          : 'font-medium'
+                          ? 'whitespace-nowrap font-bold line-through'
+                          : 'whitespace-nowrap font-bold'
                       }
+                      style={excluido ? undefined : { color: acento }}
                     >
-                      {item.nombre}
+                      {formatMoney(Number(item.precio), item.moneda)}
                     </p>
-                    {item.descripcion ? (
-                      <p className="mt-0.5 text-sm text-muted-foreground">
-                        {item.descripcion}
-                      </p>
-                    ) : null}
-                    {excluido ? (
-                      <span className="mt-1 inline-block rounded bg-muted px-1.5 py-0.5 text-[10px] font-medium text-muted-foreground">
-                        No incluido
-                      </span>
-                    ) : null}
                   </div>
-                  <p
-                    className={
-                      excluido
-                        ? 'whitespace-nowrap font-medium text-muted-foreground line-through'
-                        : 'whitespace-nowrap font-medium'
-                    }
-                  >
-                    {formatMoney(Number(item.precio), item.moneda)}
-                  </p>
+
+                  {/* Características incluidas */}
+                  {caracs.length > 0 ? (
+                    <div className="mt-3 space-y-2 border-t pt-3">
+                      {caracs.map((c, ci) => {
+                        const Icon = getIcono(c.icono)
+                        return (
+                          <div
+                            key={ci}
+                            className="flex items-start justify-between gap-3"
+                          >
+                            <div className="flex min-w-0 items-start gap-2.5">
+                              <span
+                                className="mt-0.5 flex h-6 w-6 shrink-0 items-center justify-center rounded-md"
+                                style={{
+                                  backgroundColor: `${acento}1a`,
+                                  color: acento,
+                                }}
+                              >
+                                <Icon className="h-3.5 w-3.5" />
+                              </span>
+                              <div className="min-w-0">
+                                <p className="text-sm font-medium">{c.titulo}</p>
+                                {c.descripcion ? (
+                                  <p className="text-xs text-muted-foreground">
+                                    {c.descripcion}
+                                  </p>
+                                ) : null}
+                              </div>
+                            </div>
+                            <span className="shrink-0 text-xs text-muted-foreground">
+                              Incluido
+                            </span>
+                          </div>
+                        )
+                      })}
+                    </div>
+                  ) : null}
+
+                  {excluido ? (
+                    <span className="mt-2 inline-block rounded bg-muted px-1.5 py-0.5 text-[10px] font-medium text-muted-foreground">
+                      No incluido
+                    </span>
+                  ) : null}
                 </div>
               )
             })}

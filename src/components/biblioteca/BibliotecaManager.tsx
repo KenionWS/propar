@@ -17,17 +17,25 @@ import {
   DialogTitle,
 } from '@/components/ui/dialog'
 import { CurrencyToggle } from '@/components/editor/CurrencyToggle'
+import { CaracteristicasEditor } from '@/components/editor/CaracteristicasEditor'
 import { formatMoney } from '@/lib/formatters'
-import type { Bloque, Moneda } from '@/lib/types'
+import type { Bloque, Moneda, Caracteristica } from '@/lib/types'
 
 interface FormState {
   nombre: string
   descripcion: string
   precio: number
   moneda: Moneda
+  caracteristicas: Caracteristica[]
 }
 
-const EMPTY: FormState = { nombre: '', descripcion: '', precio: 0, moneda: 'ARS' }
+const EMPTY: FormState = {
+  nombre: '',
+  descripcion: '',
+  precio: 0,
+  moneda: 'ARS',
+  caracteristicas: [],
+}
 
 export function BibliotecaManager({
   userId,
@@ -66,6 +74,7 @@ export function BibliotecaManager({
       descripcion: b.descripcion ?? '',
       precio: Number(b.precio),
       moneda: b.moneda,
+      caracteristicas: b.caracteristicas ?? [],
     })
     setOpen(true)
   }
@@ -81,6 +90,7 @@ export function BibliotecaManager({
       descripcion: form.descripcion || null,
       precio: form.precio,
       moneda: form.moneda,
+      caracteristicas: form.caracteristicas,
       updated_at: new Date().toISOString(),
     }
 
@@ -266,6 +276,14 @@ export function BibliotecaManager({
               <CurrencyToggle
                 value={form.moneda}
                 onChange={(m) => setForm((f) => ({ ...f, moneda: m }))}
+              />
+            </div>
+            <div className="border-t pt-3">
+              <CaracteristicasEditor
+                value={form.caracteristicas}
+                onChange={(caracteristicas) =>
+                  setForm((f) => ({ ...f, caracteristicas }))
+                }
               />
             </div>
           </div>
