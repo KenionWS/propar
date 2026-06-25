@@ -13,6 +13,7 @@ import {
   DialogTitle,
 } from '@/components/ui/dialog'
 import { formatMoney, totalesPorMoneda } from '@/lib/formatters'
+import { getIcono } from '@/lib/iconos'
 import { cn } from '@/lib/utils'
 import type { Item } from '@/lib/types'
 
@@ -143,43 +144,78 @@ export function BlockAcceptFlow({
       <div className="flex flex-col gap-3">
         {items.map((item) => {
           const sel = seleccion.has(item.id)
+          const caracs = item.caracteristicas ?? []
           return (
             <button
               key={item.id}
               type="button"
               onClick={() => toggle(item.id)}
               className={cn(
-                'flex items-start justify-between gap-4 rounded-lg border p-3 text-left transition-colors',
+                'flex w-full flex-col gap-3 rounded-lg border p-3 text-left transition-colors',
                 sel ? 'bg-background' : 'border-dashed bg-muted/30 opacity-70'
               )}
               style={sel ? { borderColor: colorAcento } : undefined}
             >
-              <div className="flex items-start gap-3">
-                <span
-                  className={cn(
-                    'mt-0.5 flex h-5 w-5 shrink-0 items-center justify-center rounded border',
-                    sel ? 'text-white' : 'bg-background'
-                  )}
-                  style={
-                    sel
-                      ? { backgroundColor: colorAcento, borderColor: colorAcento }
-                      : undefined
-                  }
-                >
-                  {sel ? <Check className="h-3.5 w-3.5" /> : null}
-                </span>
-                <div className="min-w-0">
-                  <p className="font-medium">{item.nombre}</p>
-                  {item.descripcion ? (
-                    <p className="mt-0.5 text-sm text-muted-foreground">
-                      {item.descripcion}
-                    </p>
-                  ) : null}
+              <div className="flex w-full items-start justify-between gap-4">
+                <div className="flex items-start gap-3">
+                  <span
+                    className={cn(
+                      'mt-0.5 flex h-5 w-5 shrink-0 items-center justify-center rounded border',
+                      sel ? 'text-white' : 'bg-background'
+                    )}
+                    style={
+                      sel
+                        ? {
+                            backgroundColor: colorAcento,
+                            borderColor: colorAcento,
+                          }
+                        : undefined
+                    }
+                  >
+                    {sel ? <Check className="h-3.5 w-3.5" /> : null}
+                  </span>
+                  <div className="min-w-0">
+                    <p className="font-medium">{item.nombre}</p>
+                    {item.descripcion ? (
+                      <p className="mt-0.5 text-sm text-muted-foreground">
+                        {item.descripcion}
+                      </p>
+                    ) : null}
+                  </div>
                 </div>
+                <span className="whitespace-nowrap font-medium">
+                  {formatMoney(Number(item.precio), item.moneda)}
+                </span>
               </div>
-              <span className="whitespace-nowrap font-medium">
-                {formatMoney(Number(item.precio), item.moneda)}
-              </span>
+
+              {caracs.length > 0 ? (
+                <div className="space-y-2 border-t pt-2 pl-8">
+                  {caracs.map((c, ci) => {
+                    const Icon = getIcono(c.icono)
+                    return (
+                      <div key={ci} className="flex items-start gap-2.5">
+                        <span
+                          className="mt-0.5 flex h-5 w-5 shrink-0 items-center justify-center rounded-md"
+                          style={{
+                            backgroundColor: `${colorAcento}1a`,
+                            color: colorAcento,
+                          }}
+                        >
+                          <Icon className="h-3 w-3" />
+                        </span>
+                        <div className="min-w-0">
+                          <p className="text-sm font-medium">{c.titulo}</p>
+                          {c.descripcion ? (
+                            <p className="text-xs text-muted-foreground">
+                              {c.descripcion}
+                            </p>
+                          ) : null}
+                        </div>
+                      </div>
+                    )
+                  })}
+                </div>
+              ) : null}
             </button>
           )
         })}
