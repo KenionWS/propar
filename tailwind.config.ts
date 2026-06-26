@@ -20,6 +20,10 @@ const config: Config = {
         sans: ["var(--font-inter)", "system-ui", "sans-serif"],
       },
       colors: {
+        brand: {
+          dark: "var(--brand-dark)",
+          accent: "var(--brand-accent)",
+        },
         border: "hsl(var(--border))",
         input: "hsl(var(--input))",
         ring: "hsl(var(--ring))",

@@ -1,5 +1,5 @@
 -- =====================================================================
--- PropAR — Biblioteca de bloques reutilizables
+-- Cotizia — Biblioteca de bloques reutilizables
 -- Bloques (servicios/items) que el usuario guarda para reutilizar en
 -- distintas propuestas. Se copian a la propuesta (snapshot), así editar
 -- la biblioteca no altera cotizaciones ya creadas.

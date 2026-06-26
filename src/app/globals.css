@@ -6,13 +6,19 @@
   :root {
     --font-inter: 'Inter', system-ui, -apple-system, 'Segoe UI', Roboto,
       sans-serif;
+
+    /* Marca Cotizia */
+    --brand-dark: #0f172a;
+    --brand-accent: #3b82f6;
+
     --background: 0 0% 100%;
     --foreground: 222 47% 11%;
     --card: 0 0% 100%;
     --card-foreground: 222 47% 11%;
     --popover: 0 0% 100%;
     --popover-foreground: 222 47% 11%;
-    --primary: 222 47% 11%;
+    /* Primario = acento de marca (#3B82F6) → CTAs en azul */
+    --primary: 217 91% 60%;
     --primary-foreground: 210 40% 98%;
     --secondary: 210 40% 96.1%;
     --secondary-foreground: 222 47% 11%;
@@ -24,7 +30,8 @@
     --destructive-foreground: 210 40% 98%;
     --border: 214 32% 91%;
     --input: 214 32% 91%;
-    --ring: 222 47% 11%;
+    /* Foco = acento de marca */
+    --ring: 217 91% 60%;
     --radius: 0.5rem;
   }
 }

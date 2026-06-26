@@ -1,5 +1,5 @@
 -- =====================================================================
--- PropAR — Cache del token de AFIP (WSAA)
+-- Cotizia — Cache del token de AFIP (WSAA)
 -- El token+sign que devuelve WSAA vale 12hs. En serverless no se puede
 -- cachear en memoria (cold starts), así que lo guardamos acá.
 -- Acceso solo vía service client (RLS sin políticas = solo service role).

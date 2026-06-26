@@ -146,7 +146,7 @@ export function ProposalPDF({
             <Image src={profile.empresa_logo_url} style={styles.logo} />
           ) : (
             <Text style={styles.empresaNombre}>
-              {profile?.empresa_nombre || 'PropAR'}
+              {profile?.empresa_nombre || 'Cotizia'}
             </Text>
           )}
           <Text style={styles.fecha}>

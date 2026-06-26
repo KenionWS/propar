@@ -15,6 +15,7 @@ import {
 import { createClient } from '@/lib/supabase/client'
 import { cn } from '@/lib/utils'
 import { Button } from '@/components/ui/button'
+import { Logo } from '@/components/Logo'
 
 const NAV = [
   { href: '/', label: 'Dashboard', icon: LayoutDashboard, exact: true },
@@ -50,7 +51,7 @@ export function Sidebar({
   return (
     <aside className="flex h-full w-64 flex-col border-r bg-background">
       <div className="flex h-16 items-center gap-2 border-b px-6">
-        <span className="text-xl font-bold tracking-tight">PropAR</span>
+        <Logo variant="full" size={20} />
       </div>
 
       <div className="px-3 py-4">
@@ -75,8 +76,8 @@ export function Sidebar({
               className={cn(
                 'flex items-center gap-3 rounded-md px-3 py-2 text-sm font-medium transition-colors',
                 active
-                  ? 'bg-secondary text-foreground'
-                  : 'text-muted-foreground hover:bg-secondary/60 hover:text-foreground'
+                  ? 'bg-brand-accent/10 text-brand-accent'
+                  : 'text-muted-foreground hover:bg-brand-accent/5 hover:text-brand-accent'
               )}
             >
               <Icon className="h-4 w-4" />

@@ -73,12 +73,12 @@ export function ProposalRow({ propuesta }: { propuesta: Propuesta }) {
           <p
             className={
               recienVista
-                ? 'mt-0.5 flex items-center gap-1 text-xs font-medium text-amber-600'
+                ? 'mt-0.5 flex items-center gap-1 text-xs font-medium text-brand-accent'
                 : 'mt-0.5 text-xs text-muted-foreground'
             }
           >
             {recienVista ? (
-              <span className="inline-block h-1.5 w-1.5 rounded-full bg-amber-500" />
+              <span className="inline-block h-1.5 w-1.5 rounded-full bg-brand-accent" />
             ) : null}
             Vista {formatRelativeTime(propuesta.vista_primera_vez_at)}
           </p>

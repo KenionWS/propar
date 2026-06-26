@@ -1,5 +1,5 @@
 -- =====================================================================
--- PropAR — Branding por agencia
+-- Cotizia — Branding por agencia
 -- Agrega opciones de personalización al perfil.
 -- Ejecutar en el SQL Editor de Supabase.
 -- =====================================================================

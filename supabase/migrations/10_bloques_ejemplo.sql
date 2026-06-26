@@ -1,5 +1,5 @@
 -- =====================================================================
--- PropAR — Bloques de ejemplo (catálogo curado por la plataforma)
+-- Cotizia — Bloques de ejemplo (catálogo curado por la plataforma)
 -- Bloques que carga el admin, categorizados por servicio. Todos los
 -- usuarios los ven (lectura) y los insertan en sus propuestas. Solo el
 -- admin los gestiona.

@@ -73,7 +73,7 @@ export function ProposalView({
             />
           ) : (
             <span className="text-xl font-bold" style={{ color }}>
-              {profile?.empresa_nombre || 'PropAR'}
+              {profile?.empresa_nombre || 'Cotizia'}
             </span>
           )}
         </div>

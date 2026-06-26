@@ -1,5 +1,5 @@
 -- =====================================================================
--- PropAR — Seguimiento de pagos / cobros
+-- Cotizia — Seguimiento de pagos / cobros
 -- Cada fila es una cuota de una propuesta aceptada. El plan (monto
 -- mensual + cantidad de cuotas + fecha de inicio) se define al cerrar y
 -- genera N filas en esta tabla. El dueño marca cada cuota como pagada.

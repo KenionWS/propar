@@ -1,5 +1,5 @@
 -- =====================================================================
--- PropAR — Scaffolding de facturación (AFIP)
+-- Cotizia — Scaffolding de facturación (AFIP)
 -- Estado de factura por cuota, listo para integrar con AFIP/ARCA (WSFEv1)
 -- a futuro. Por ahora estas columnas solo registran el estado.
 -- Ejecutar en el SQL Editor de Supabase.

@@ -9,11 +9,11 @@ const CONFIG: Record<Estado, { label: string; className: string }> = {
   },
   enviada: {
     label: 'Enviada',
-    className: 'bg-blue-100 text-blue-700 hover:bg-blue-100',
+    className: 'bg-sky-100 text-sky-700 hover:bg-sky-100',
   },
   vista: {
     label: 'Vista',
-    className: 'bg-amber-100 text-amber-800 hover:bg-amber-100',
+    className: 'bg-blue-100 text-blue-700 hover:bg-blue-100',
   },
   aceptada: {
     label: 'Aceptada',

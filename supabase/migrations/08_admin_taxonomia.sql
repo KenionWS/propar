@@ -1,5 +1,5 @@
 -- =====================================================================
--- PropAR — Rol admin + taxonomía (rubros / servicios)
+-- Cotizia — Rol admin + taxonomía (rubros / servicios)
 -- Base del catálogo curado y del futuro benchmark de precios.
 -- Ejecutar en el SQL Editor de Supabase.
 -- =====================================================================

@@ -1,5 +1,5 @@
 -- =====================================================================
--- PropAR — Esquema de base de datos
+-- Cotizia — Esquema de base de datos
 -- Ejecutar en el SQL Editor de Supabase.
 -- =====================================================================
 

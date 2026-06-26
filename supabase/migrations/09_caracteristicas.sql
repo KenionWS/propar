@@ -1,5 +1,5 @@
 -- =====================================================================
--- PropAR — Características de los bloques (sub-items con ícono)
+-- Cotizia — Características de los bloques (sub-items con ícono)
 -- Cada item/bloque puede tener una lista de características "incluidas",
 -- cada una con ícono + título + descripción. Se guarda como JSONB para
 -- que sobreviva al reemplazo en bloque de los items al guardar.

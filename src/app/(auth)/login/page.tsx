@@ -6,6 +6,7 @@ import { Auth } from '@supabase/auth-ui-react'
 import { ThemeSupa } from '@supabase/auth-ui-shared'
 import { createClient } from '@/lib/supabase/client'
 import { Card, CardContent } from '@/components/ui/card'
+import { Logo } from '@/components/Logo'
 
 export default function LoginPage() {
   const router = useRouter()
@@ -32,9 +33,9 @@ export default function LoginPage() {
 
   return (
     <div className="w-full max-w-sm">
-      <div className="mb-8 text-center">
-        <h1 className="text-3xl font-bold tracking-tight">PropAR</h1>
-        <p className="mt-2 text-sm text-muted-foreground">
+      <div className="mb-8 flex flex-col items-center text-center">
+        <Logo variant="full" size={28} />
+        <p className="mt-3 text-sm text-muted-foreground">
           Propuestas comerciales profesionales
         </p>
       </div>
@@ -50,8 +51,8 @@ export default function LoginPage() {
               variables: {
                 default: {
                   colors: {
-                    brand: '#111827',
-                    brandAccent: '#374151',
+                    brand: 'var(--brand-accent)',
+                    brandAccent: 'var(--brand-dark)',
                   },
                 },
               },

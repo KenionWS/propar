@@ -1,4 +1,4 @@
-# PropAR
+# Cotizia
 
 Aplicación web para crear y enviar propuestas comerciales profesionales.
 El diferenciador es el workflow post-envío: link único por propuesta, tracking

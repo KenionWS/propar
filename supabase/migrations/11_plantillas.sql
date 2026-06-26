@@ -1,5 +1,5 @@
 -- =====================================================================
--- PropAR — Plantillas de propuesta (catálogo curado)
+-- Cotizia — Plantillas de propuesta (catálogo curado)
 -- Cotizaciones completas de ejemplo por rubro que el usuario clona como
 -- punto de partida. Los items se guardan como JSONB (snapshot que se
 -- copia a la nueva propuesta al clonar). Solo el admin las gestiona.

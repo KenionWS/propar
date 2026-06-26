@@ -124,7 +124,7 @@ export function FacturaPDF({
         {/* Encabezado */}
         <View style={s.topRow}>
           <View style={s.topCol}>
-            <Text style={s.empresa}>{profile?.empresa_nombre || 'PropAR'}</Text>
+            <Text style={s.empresa}>{profile?.empresa_nombre || 'Cotizia'}</Text>
             <Text style={s.small}>CUIT: {cuit || '—'}</Text>
             <Text style={s.small}>Responsable Monotributo</Text>
             {profile?.empresa_direccion ? (

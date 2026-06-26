@@ -1,7 +1,7 @@
 import { Resend } from 'resend'
 
 const apiKey = process.env.RESEND_API_KEY
-const fromEmail = process.env.RESEND_FROM_EMAIL || 'PropAR <onboarding@resend.dev>'
+const fromEmail = process.env.RESEND_FROM_EMAIL || 'Cotizia <onboarding@resend.dev>'
 
 const resend = apiKey ? new Resend(apiKey) : null
 
@@ -32,13 +32,13 @@ function wrapper(contenido: string): string {
   return `
   <div style="font-family: -apple-system, Segoe UI, Roboto, Helvetica, Arial, sans-serif; max-width: 480px; margin: 0 auto; color: #111827;">
     <div style="padding: 24px 0; border-bottom: 1px solid #e5e7eb;">
-      <span style="font-size: 20px; font-weight: 700;">PropAR</span>
+      <span style="font-size: 22px; font-weight: 800; letter-spacing: -0.5px;"><span style="color: #3B82F6;">c</span><span style="color: #0F172A;">otizia</span></span>
     </div>
     <div style="padding: 24px 0; font-size: 15px; line-height: 1.6;">
       ${contenido}
     </div>
     <div style="padding: 16px 0; border-top: 1px solid #e5e7eb; font-size: 12px; color: #6b7280;">
-      Notificación automática de PropAR.
+      Notificación automática de Cotizia.
     </div>
   </div>`
 }

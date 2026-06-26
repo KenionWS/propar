@@ -1,5 +1,5 @@
 -- =====================================================================
--- PropAR — Aceptación parcial por bloques
+-- Cotizia — Aceptación parcial por bloques
 -- - Nuevo estado 'aceptada_parcial'
 -- - modo_aceptacion por propuesta ('completa' | 'por_bloques')
 -- - motivo_rechazo en la propuesta

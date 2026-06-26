@@ -45,7 +45,7 @@ export async function GET(
     })
   )
 
-  const filename = `propuesta-${slugify(propuesta.titulo || 'propar')}.pdf`
+  const filename = `propuesta-${slugify(propuesta.titulo || 'cotizia')}.pdf`
 
   return new NextResponse(buffer as unknown as BodyInit, {
     headers: {

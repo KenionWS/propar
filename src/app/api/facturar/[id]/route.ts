@@ -76,7 +76,7 @@ export async function POST(
       emailFactura({
         to: prop.cliente_email,
         cliente: prop.cliente_nombre,
-        empresa: prof?.empresa_nombre || 'PropAR',
+        empresa: prof?.empresa_nombre || 'Cotizia',
         numero: p.factura_numero || 's/n',
         monto: formatMoney(Number(p.monto), p.moneda),
         url: p.factura_url,
